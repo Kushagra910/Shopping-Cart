@@ -1,6 +1,7 @@
 import {FaShoppingCart} from 'react-icons/fa'
 import { NavLink } from 'react-router-dom';
 import {useSelector} from 'react-redux';
+const URL = 'https://raw.githubusercontent.com/Kushagra910/Shopping-Cart/master/public/logo.png';
 
 const Navbar = () => {
 
@@ -10,7 +11,7 @@ const Navbar = () => {
       <nav className="flex justify-between items-center h-20 max-w-6xl mx-auto">
       <NavLink to="/">
         <div>
-          <img src = "../logo.png" className="h-10 sm:h-14" alt='reload'/>
+          <img src = {`${URL}`} className="h-10 sm:h-14" alt='reload'/>
         </div>
       </NavLink>
         <div className='flex items-center space-x-6 text-white font-medium mr-5'>
