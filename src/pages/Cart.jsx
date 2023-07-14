@@ -11,10 +11,10 @@ const Cart = () => {
     setTotalAmount(cart.reduce((acc,curr)=> acc + curr.price,0));
   },[cart]);
   return (
-    <div>
+    <div className='flex justify-around w-8/12 mx-auto items-center relative'>
       {
-        cart.length >= 0 ?
-        (<div>
+        cart.length > 0 ?
+        (<div className=' flex flex-col sm:flex-row items-center gap-16'>
           <div>
             {
               cart.map((item,index)=>{
@@ -22,25 +22,24 @@ const Cart = () => {
               })
             }
           </div>
-
-          <div>
+          <div className='flex flex-col gap-8 sm:gap-10 justify-center w-full sm:sticky sm:top-72 sm:bottom-10 scroll-smooth' >
             <div>
-              <div>Your Cart</div>
-              <div>Summary</div>
-              <p><span>Total Items:{cart.length}</span></p>
+              <div className='uppercase text-green-700 font-bold text-[1rem] sm:text-[1.5rem] tracking-wide sm:fixed sm:top-40'>Your Cart</div>
+              <div className='uppercase text-green-700 font-bold text-[1.3rem] sm:text-[2.5rem] tracking-wide sm:fixed sm:top-48'>Summary</div>
+              <p className='font-semi-bold'><span>Total Items:{cart.length}</span></p>
             </div>
-            <div>
-                <p><span>Total Amount : {`${totalAmount}`}</span></p>
-                <button>
+            <div className='flex flex-col gap-5 mb-8'>
+                <p className='font-semi-bold'>Total Amount : <span className='font-bold'>${`${totalAmount}`}</span></p>
+                <button className='bg-green-700 text-white py-4 rounded-3xl'>
                   CheckOut Now
                 </button>
               </div>
           </div>
         </div>) : 
-        (<div>
-          <h1>Cart Empty</h1>
+        (<div className='flex flex-col justify-center items-center h-screen overfloww-y-hidden gap-4'>
+          <h1  className='text-2xl font-bold text-gray-700'>Cart Empty</h1>
           <NavLink to="/">
-            <button>Shop Now</button>
+            <button className='py-2 px-6 sm:py-4 sm:px-20 bg-green-700 text-white rounded-3xl font-bold text-lg' >Shop Now</button>
           </NavLink>
         </div>)
       }
